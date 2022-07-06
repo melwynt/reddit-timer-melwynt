@@ -10,6 +10,8 @@ import {
   useLocation,
 } from 'react-router-dom';
 import Calendar from './Calendar';
+import Posts from './Posts';
+
 import recursiveCommentFetch from '../helper/reddit';
 
 const getData = async (word) => recursiveCommentFetch(word);
@@ -42,6 +44,8 @@ const Search = () => {
   };
   const [posts, dispatch] = useReducer(reducer, initialState);
 
+  const [selectedPosts, setSelectedPosts] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/search/${search}`, { state: { subreddit: search } });
@@ -52,9 +56,8 @@ const Search = () => {
     setSearch(e.target.value);
   };
 
-  // const handleSelect = (day, hour) => {
-  const handleSelect = () => {
-    // console.log(`select ${day} ${hour}`);
+  const handleSelect = (selectedData) => {
+    setSelectedPosts(selectedData);
   };
 
   useEffect(() => {
@@ -114,6 +117,7 @@ const Search = () => {
       <div className="main-search__timezone">
         All times are shown in your timezone: <span>{timezone}</span>
       </div>
+      {selectedPosts.length !== 0 && <Posts selectedPosts={selectedPosts} />}
     </main>
   );
 };

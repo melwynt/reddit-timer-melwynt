@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
@@ -27,10 +28,23 @@ const Calendar = ({ posts, handleSelect }) => {
   const updateCalendar = (dataPosts) => {
     // loop through all the posts
     for (let i = 0; i < dataPosts.length; i += 1) {
-      const currentTime = dayjs.unix(dataPosts[i].data.created);
+      const {
+        created, //
+        title,
+        permalink,
+        score,
+        author,
+        num_comments,
+        id,
+      } = dataPosts[i].data;
+
+      const url = `https://www.reddit.com${permalink}`;
+
+      const currentTime = dayjs.unix(created);
 
       const hour = Number(currentTime.utc().local().format('H'));
       const dayOfWeek = currentTime.utc().local().format('dddd');
+      const timePosted = currentTime.utc().local().format('h:mm a');
 
       // push the hour in the correct day of the week
       switch (dayOfWeek) {
@@ -39,7 +53,30 @@ const Calendar = ({ posts, handleSelect }) => {
             ...prevCalendar,
             Monday: {
               ...prevCalendar.Monday,
-              [hour]: prevCalendar.Monday[hour] + 1 || 1,
+              [hour]: {
+                count: prevCalendar.Monday[hour]?.count + 1 || 1,
+                posts: prevCalendar.Monday[hour]?.posts?.concat([
+                  {
+                    title,
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ]) || [
+                  {
+                    title, //
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ],
+              },
             },
           }));
           break;
@@ -48,7 +85,30 @@ const Calendar = ({ posts, handleSelect }) => {
             ...prevCalendar,
             Tuesday: {
               ...prevCalendar.Tuesday,
-              [hour]: prevCalendar.Tuesday[hour] + 1 || 1,
+              [hour]: {
+                count: prevCalendar.Tuesday[hour]?.count + 1 || 1,
+                posts: prevCalendar.Tuesday[hour]?.posts?.concat([
+                  {
+                    title,
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ]) || [
+                  {
+                    title, //
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ],
+              },
             },
           }));
           break;
@@ -57,7 +117,30 @@ const Calendar = ({ posts, handleSelect }) => {
             ...prevCalendar,
             Wednesday: {
               ...prevCalendar.Wednesday,
-              [hour]: prevCalendar.Wednesday[hour] + 1 || 1,
+              [hour]: {
+                count: prevCalendar.Wednesday[hour]?.count + 1 || 1,
+                posts: prevCalendar.Wednesday[hour]?.posts?.concat([
+                  {
+                    title,
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ]) || [
+                  {
+                    title, //
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ],
+              },
             },
           }));
           break;
@@ -66,7 +149,30 @@ const Calendar = ({ posts, handleSelect }) => {
             ...prevCalendar,
             Thursday: {
               ...prevCalendar.Thursday,
-              [hour]: prevCalendar.Thursday[hour] + 1 || 1,
+              [hour]: {
+                count: prevCalendar.Thursday[hour]?.count + 1 || 1,
+                posts: prevCalendar.Thursday[hour]?.posts?.concat([
+                  {
+                    title,
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ]) || [
+                  {
+                    title, //
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ],
+              },
             },
           }));
           break;
@@ -75,7 +181,30 @@ const Calendar = ({ posts, handleSelect }) => {
             ...prevCalendar,
             Friday: {
               ...prevCalendar.Friday,
-              [hour]: prevCalendar.Friday[hour] + 1 || 1,
+              [hour]: {
+                count: prevCalendar.Friday[hour]?.count + 1 || 1,
+                posts: prevCalendar.Friday[hour]?.posts?.concat([
+                  {
+                    title,
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ]) || [
+                  {
+                    title, //
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ],
+              },
             },
           }));
           break;
@@ -84,7 +213,30 @@ const Calendar = ({ posts, handleSelect }) => {
             ...prevCalendar,
             Saturday: {
               ...prevCalendar.Saturday,
-              [hour]: prevCalendar.Saturday[hour] + 1 || 1,
+              [hour]: {
+                count: prevCalendar.Saturday[hour]?.count + 1 || 1,
+                posts: prevCalendar.Saturday[hour]?.posts?.concat([
+                  {
+                    title,
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ]) || [
+                  {
+                    title, //
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ],
+              },
             },
           }));
           break;
@@ -93,7 +245,30 @@ const Calendar = ({ posts, handleSelect }) => {
             ...prevCalendar,
             Sunday: {
               ...prevCalendar.Sunday,
-              [hour]: prevCalendar.Sunday[hour] + 1 || 1,
+              [hour]: {
+                count: prevCalendar.Sunday[hour]?.count + 1 || 1,
+                posts: prevCalendar.Sunday[hour]?.posts?.concat([
+                  {
+                    title,
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ]) || [
+                  {
+                    title, //
+                    url,
+                    timePosted,
+                    score,
+                    num_comments,
+                    author,
+                    id,
+                  },
+                ],
+              },
             },
           }));
           break;
@@ -111,9 +286,9 @@ const Calendar = ({ posts, handleSelect }) => {
     updateCalendar(data);
   }, [data]);
 
-  useEffect(() => {
-    // console.log(calendar);
-  }, [calendar]);
+  // useEffect(() => {
+  //   console.log(calendar);
+  // }, [calendar]);
 
   return (
     <table className="calendar">
@@ -140,7 +315,7 @@ const Calendar = ({ posts, handleSelect }) => {
             <th key={`${day}-header`}>{day}</th>
 
             {hours.map((hour) => {
-              const res = calendar[day][hour] || 0;
+              const res = calendar[day][hour]?.count || 0;
 
               // setting up color code based on number of posts during that hour
               let classTD = res >= 10 ? 'color-10' : `color-${res}`;
@@ -186,8 +361,16 @@ const Calendar = ({ posts, handleSelect }) => {
                     className="calendar__button"
                     type="button"
                     onClick={() => {
-                      // handleSelect(day, hour);
-                      handleSelect();
+                      if (res === 0) {
+                        // console.log(
+                        //   'type of calendar[day][hour]:',
+                        //   typeof calendar[day][hour],
+                        // );
+                        handleSelect([]);
+                      } else {
+                        handleSelect(calendar[day][hour].posts);
+                      }
+
                       setSelected({
                         day,
                         hour,
