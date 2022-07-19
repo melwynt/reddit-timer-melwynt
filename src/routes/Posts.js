@@ -27,56 +27,62 @@ const Posts = ({ selectedPosts }) => {
   // The new Babel release gives support for ECMAs…
 
   return (
-    <div className="posts">
-      <h1 className="posts__title">Posts</h1>
-      <table className="posts__table">
-        <thead>
-          <tr>
-            <td>Title</td>
-            <td>Time Posted</td>
-            <td>Score</td>
-            <td>Comments</td>
-            <td>Author</td>
-          </tr>
-        </thead>
-        <tbody>
-          {selectedPosts.length !== 0 ? (
-            selectedPosts.map((post) => (
-              <tr key={post.id}>
-                <td>
-                  <a href={post.url} target="_blank" rel="noopener noreferrer">
-                    {shortenTitle(post.title)}
-                  </a>
-                </td>
-                <td>{post.timePosted}</td>
-                <td>{post.score}</td>
-                <td>{post.num_comments}</td>
-                <td>
-                  {post.author === '[deleted]' ? (
-                    '[deleted]'
-                  ) : (
+    <div className="posts-container">
+      <div className="posts">
+        <h1 className="posts__title">Posts</h1>
+        <table className="posts__table">
+          <thead>
+            <tr>
+              <td>Title</td>
+              <td>Time Posted</td>
+              <td>Score</td>
+              <td>Comments</td>
+              <td>Author</td>
+            </tr>
+          </thead>
+          <tbody>
+            {selectedPosts.length !== 0 ? (
+              selectedPosts.map((post) => (
+                <tr key={post.id}>
+                  <td>
                     <a
-                      href={`https://reddit.com/u/${post.author}`}
+                      href={post.url}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {post.author}
+                      {shortenTitle(post.title)}
                     </a>
-                  )}
-                </td>
+                  </td>
+                  <td>{post.timePosted}</td>
+                  <td>{post.score}</td>
+                  <td>{post.num_comments}</td>
+                  <td>
+                    {post.author === '[deleted]' ? (
+                      '[deleted]'
+                    ) : (
+                      <a
+                        href={`https://reddit.com/u/${post.author}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {post.author}
+                      </a>
+                    )}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td />
-              <td />
-              <td />
-              <td />
-              <td />
-            </tr>
-          )}
-        </tbody>
-      </table>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

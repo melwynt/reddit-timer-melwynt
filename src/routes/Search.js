@@ -106,7 +106,9 @@ const Search = () => {
               value={search}
             />
           </label>
-          <button type="submit">Search</button>
+          <button type="submit" id="btn-search">
+            Search
+          </button>
         </form>
       </div>
       {loading ? (

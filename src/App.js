@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Header from './routes/Header';
 import Home from './routes/Home';
 import Search from './routes/Search';
-import Header from './routes/Header';
-import Footer from './routes/Footer';
 import Terms from './routes/Terms';
+import Footer from './routes/Footer';
 
 const App = () => {
   const aboutRef = useRef(null);

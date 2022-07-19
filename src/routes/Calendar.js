@@ -291,101 +291,103 @@ const Calendar = ({ posts, handleSelect }) => {
   // }, [calendar]);
 
   return (
-    <table className="calendar">
-      <thead>
-        <tr>
-          <td />
-          <td colSpan="2">12:00am</td>
-          <td colSpan="2">2:00am</td>
-          <td colSpan="2">4:00am</td>
-          <td colSpan="2">6:00am</td>
-          <td colSpan="2">8:00am</td>
-          <td colSpan="2">10:00am</td>
-          <td colSpan="2">12:00pm</td>
-          <td colSpan="2">2:00pm</td>
-          <td colSpan="2">4:00pm</td>
-          <td colSpan="2">6:00pm</td>
-          <td colSpan="2">8:00pm</td>
-          <td colSpan="2">10:00pm</td>
-        </tr>
-      </thead>
-      <tbody>
-        {days.map((day) => (
-          <tr key={day}>
-            <th key={`${day}-header`}>{day}</th>
+    <div className="calendar-container">
+      <table className="calendar">
+        <thead>
+          <tr>
+            <td />
+            <td colSpan="2">12:00am</td>
+            <td colSpan="2">2:00am</td>
+            <td colSpan="2">4:00am</td>
+            <td colSpan="2">6:00am</td>
+            <td colSpan="2">8:00am</td>
+            <td colSpan="2">10:00am</td>
+            <td colSpan="2">12:00pm</td>
+            <td colSpan="2">2:00pm</td>
+            <td colSpan="2">4:00pm</td>
+            <td colSpan="2">6:00pm</td>
+            <td colSpan="2">8:00pm</td>
+            <td colSpan="2">10:00pm</td>
+          </tr>
+        </thead>
+        <tbody>
+          {days.map((day) => (
+            <tr key={day}>
+              <th key={`${day}-header`}>{day}</th>
 
-            {hours.map((hour) => {
-              const res = calendar[day][hour]?.count || 0;
+              {hours.map((hour) => {
+                const res = calendar[day][hour]?.count || 0;
 
-              // setting up color code based on number of posts during that hour
-              let classTD = res >= 10 ? 'color-10' : `color-${res}`;
+                // setting up color code based on number of posts during that hour
+                let classTD = res >= 10 ? 'color-10' : `color-${res}`;
 
-              // init itemSelected to false
-              let itemSelected = false;
+                // init itemSelected to false
+                let itemSelected = false;
 
-              // if day and hour are true, we add 'selected' class
-              if (day === selected.day && hour === selected.hour) {
-                itemSelected = true;
-                classTD += ' selected';
-              }
-
-              // state if item was hovered
-              let itemFocused = false;
-
-              // focused state is updated via setFocused on onMouseOver
-              if (day === focused.day && hour === focused.hour) {
-                itemFocused = true;
-
-                // we are only adding the 'selected' class if the item was not already clicked on
-                if (!itemSelected && itemFocused) {
+                // if day and hour are true, we add 'selected' class
+                if (day === selected.day && hour === selected.hour) {
+                  itemSelected = true;
                   classTD += ' selected';
                 }
-              }
 
-              return (
-                <td
-                  className={classTD}
-                  key={`${day}-${hour}`}
-                  onMouseOver={() => {
-                    // console.log('hover');
-                    setFocused({
-                      day,
-                      hour,
-                    });
-                  }}
-                  onFocus={() => {
-                    // console.log('focused');
-                  }}
-                >
-                  <button
-                    className="calendar__button"
-                    type="button"
-                    onClick={() => {
-                      if (res === 0) {
-                        // console.log(
-                        //   'type of calendar[day][hour]:',
-                        //   typeof calendar[day][hour],
-                        // );
-                        handleSelect([]);
-                      } else {
-                        handleSelect(calendar[day][hour].posts);
-                      }
+                // state if item was hovered
+                let itemFocused = false;
 
-                      setSelected({
+                // focused state is updated via setFocused on onMouseOver
+                if (day === focused.day && hour === focused.hour) {
+                  itemFocused = true;
+
+                  // we are only adding the 'selected' class if the item was not already clicked on
+                  if (!itemSelected && itemFocused) {
+                    classTD += ' selected';
+                  }
+                }
+
+                return (
+                  <td
+                    className={classTD}
+                    key={`${day}-${hour}`}
+                    onMouseOver={() => {
+                      // console.log('hover');
+                      setFocused({
                         day,
                         hour,
                       });
                     }}
+                    onFocus={() => {
+                      // console.log('focused');
+                    }}
                   >
-                    {res}
-                  </button>
-                </td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+                    <button
+                      className="calendar__button"
+                      type="button"
+                      onClick={() => {
+                        if (res === 0) {
+                          // console.log(
+                          //   'type of calendar[day][hour]:',
+                          //   typeof calendar[day][hour],
+                          // );
+                          handleSelect([]);
+                        } else {
+                          handleSelect(calendar[day][hour].posts);
+                        }
+
+                        setSelected({
+                          day,
+                          hour,
+                        });
+                      }}
+                    >
+                      {res}
+                    </button>
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

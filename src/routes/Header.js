@@ -10,11 +10,15 @@ const Header = ({ handleScroll, aboutRef, howItWorksRef }) => (
         <img src={logo} alt="" />
       </Link>
     </div>
+
+    <input type="checkbox" id="menu-btn" className="menu-btn" />
+    <label className="menu-icon" htmlFor="menu-btn">
+      <span className="nav-icon" />
+    </label>
+
     <ul className="nav-list">
       <li className="nav-list__item">
-        <Link to="/search/javascript">
-          Search
-        </Link>
+        <Link to="/search/javascript">Search</Link>
       </li>
       <li className="nav-list__item">
         <Link
