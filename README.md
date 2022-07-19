@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center"> Welcome to Reddit Timer App 👋</h1>
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/melwyncode" target="_blank">
+    <img alt="Twitter: melwyncode" src="https://img.shields.io/twitter/follow/melwyncode.svg?style=social" />
+  </a>
+    <a href="https://reddit-timer-melwynt.vercel.app/" target="_blank">
+    <img alt="Vercel Deploy" src="https://badgen.net/badge/icon/vercel?icon=vercel&label" />
+  </a>
+ 
+</p>
 
-## Available Scripts
+[![App Home Screen](./docs/reddit_timer_home.png 'Home Screen')](https://reddit-timer-melwynt.vercel.app/)
 
-In the project directory, you can run:
+> Use a heatmap to show users what is the best time to post in a given subreddit.
 
-### `yarn start`
+[![App Search Screen](./docs/reddit_timer_search_reactjs.png 'Search Reatjs SubReddit')](https://reddittimer.netlify.app/search/reactjs)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Search In progress
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## About This Project
 
-### `yarn test`
+I implemented this project in the context of a course at [profy.dev](https://profy.dev/). This course mimics a professional real-world development environment.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Designs were provided via [Figma](https://figma.com/). The project was split into small tasks using [Clickup](https://clickup.com/) as a project management tool. I created a pull request for every task. The code was reviewed line by line by [Johannes](https://jkettmann.com/about/), a senior developer.
 
-### `yarn build`
+In this project I have been exposed to many practical techniques that I wouldn't have learned otherwise. Examples as following but not limited to:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Creating pixel-perfect designs**
+- **Planning and implementing a complex UI component**
+- **Implement data fetching with error handling**
+- **Debugging inside an IDE**
+- **Writing integration tests**
+- **Professional Git workflow with pull requests**
+- **Code reviews**
+- **Continuous integration**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+I was free to choose any technical stack, packages, and coding styles to finish the project as long as I met the acceptance criteria of a given task. The only limitation was to use React.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The code reviews gave me insights into best practices to follow (see [this example](https://github.com/profydev/reddit-timer-melwynt/pull/14#pullrequestreview-1026887053)). I was able to learn a lot and evolve my front-end knowledge rapidly.
 
-### `yarn eject`
+### ✨ [Demo Link](https://reddit-timer-melwynt.vercel.app/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tech Stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React (Hook)
+- SASS/SCSS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Tools Use for the Project
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [Figma](https://figma.com) - Where the design came from
+- [Pixel Perfect Pro](https://chrome.google.com/webstore/detail/pixel-perfect-pro/nnhifpoojdlddpnhjbhiagddgckpmpfb) - To Help create Pixel perfect Layout
+- [Clickup](https://clickup.com/) - Project Management Tool
+- Github - Version control & team collaboration
+- Slack - Team communication tool
 
-## Learn More
+### Install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+yarn install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Usage
 
-### Code Splitting
+```sh
+yarn start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Run tests
 
-### Analyzing the Bundle Size
+```sh
+yarn cypress run
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Author
 
-### Making a Progressive Web App
+👤 **Melwyn Turbant**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Twitter: [@melwyncode](https://twitter.com/melwyncode)
+- LinkedIn: [@melwynturbant](https://www.linkedin.com/in/melwynturbant/)
 
-### Advanced Configuration
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**_Special Thanks to [profy.dev](https://profy.dev/) and [Johannes Kettmann](https://jkettmann.com)._**
